@@ -151,3 +151,6 @@
 /media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/ref/WebBack.dll
 /media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/WebBack.pdb
 /media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/WebBack.genruntimeconfig.cache
+/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/Razor/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml.g.cs
+/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
+/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/obj/Debug/net5.0/Razor/Views/Shared/_LoginPartial.cshtml.g.cs
