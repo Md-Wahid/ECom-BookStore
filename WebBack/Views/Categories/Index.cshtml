@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebBack.Models.Category>
+@{
+    ViewData["Title"] = "Categories";
+    short sl = 1;
+}
+
+<div class="text-center bg-info text-light py-4 mb-5">
+    <h1 class="display-4">Categories</h1>
+    @if(Model.Count() == 0)
+    {
+        <h4 class="display-6">Sorry No items found. Please <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;click here</a> to add new item(s).</h4>
+    }
+    else
+    {
+        <h4 class="display-6">List of all Categories is here.</h4>
+    }
+</div>
+
+
+@if(Model.Count() > 0)
+{
+    <p>
+        <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i>&nbsp;Create New</a>
+    </p>
+    <table class="table table-striped table-hover text-center">
+        <thead>
+            <tr class="table-info">
+                @* <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.LastName)</a>
+                </th> *@
+                <th>SL No.</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                @* <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.EnrollmentDate)</a>
+                </th> *@
+                <th class="action clock">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="table-info">@sl</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="far fa-edit"></i>&nbsp;Update</a>&nbsp;
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-clipboard-list"></i>&nbsp;Details</a>&nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+                </td>
+            </tr>
+            sl++;
+        }
+        </tbody>
+        @* <thead>
+            <tr class="table-info">
+                <th>@sl</th>
+                <th>Total</th>
+                <th>@ViewBag.Total</th>
+                <th>@DateTime.Now</th>
+                <th><a asp-action="DisplaySale" class="btn btn-info"><i class="fas fa-sync-alt"></i>&nbsp;Refresh</a></th>
+            </tr>
+        </thead> *@
+    </table>
+}

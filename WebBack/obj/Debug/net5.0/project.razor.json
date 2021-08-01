@@ -15634,8 +15634,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores copy/Create.cshtml",
+      "TargetPath": "Views\\BookStores copy\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Index.cshtml",
+      "TargetPath": "Views\\BookStores\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores copy/Index.cshtml",
+      "TargetPath": "Views\\BookStores copy\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15666,6 +15681,11 @@
     {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Create.cshtml",
+      "TargetPath": "Views\\BookStores\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -19,7 +19,7 @@ namespace WebBack.Areas.Identity
                     options.UseSqlite(
                         context.Configuration.GetConnectionString("DataContextConnection")));
 
-                services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<AppUser>().AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<DataContext>();
             });
         }
