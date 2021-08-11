@@ -232,9 +232,6 @@ namespace WebBack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PictureUri")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
@@ -280,6 +277,31 @@ namespace WebBack.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("BookCategory");
+                });
+
+            modelBuilder.Entity("WebBack.Models.BookPicture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("BookId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PictureName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PictureUri")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookPictures");
                 });
 
             modelBuilder.Entity("WebBack.Models.BookStore", b =>
@@ -398,9 +420,20 @@ namespace WebBack.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("WebBack.Models.BookPicture", b =>
+                {
+                    b.HasOne("WebBack.Models.Book", "Book")
+                        .WithMany("BookPictures")
+                        .HasForeignKey("BookId");
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("WebBack.Models.Book", b =>
                 {
                     b.Navigation("BookCategories");
+
+                    b.Navigation("BookPictures");
                 });
 
             modelBuilder.Entity("WebBack.Models.BookAuthor", b =>

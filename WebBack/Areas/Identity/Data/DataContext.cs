@@ -21,6 +21,7 @@ namespace WebBack.Areas.Identity.Data
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<BookStore> BookStores { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<BookPicture> BookPictures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

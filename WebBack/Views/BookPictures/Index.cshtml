@@ -1,0 +1,131 @@
+﻿@model IEnumerable<WebBack.Models.BookPicture>
+@{
+    ViewData["Title"] = "Book Pictures";
+}
+
+<div class="text-center bg-info text-light py-4 mb-5 theme-mood">
+    <h1 class="display-4">Book Pictures</h1>
+    @if(Model.Count() == 0)
+    {
+        <h4 class="display-6">Sorry No items found. Please <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;click here</a> to add new item(s).</h4>
+        @* <img src="~/uploads/images/2f85b86f-02e0-46ec-82a5-14628cebb259-Screenshot from 2021-07-21 01-42-44.png" alt="No image found" width="500"> *@
+    }
+    else
+    {
+        <h4 class="display-6">The gallery for Book Pictures. To add new image <a class="btn btn-secondary" asp-action="Create">click here</a></h4>
+    }
+</div>
+
+
+@if(Model.Count() > 0)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    @* <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="/@item.PictureUri" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Book Thumbnail"><title>@item.Title</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> *@
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="@(item.PictureUri+item.PictureName)" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Book Thumbnail"/> 
+                    @* <img src="" alt=""><title>@item.Title</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></img> *@
+                    <div class="card-body theme-mood">
+                    <p class="card-text">@item.Title</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a type="button" class="btn btn-sm btn-outline-secondary theme-mood">View</a>
+                        <a type="button" class="btn btn-sm btn-outline-secondary theme-mood" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        </div>
+                        <small class="theme-mood-text-muted">9 mins</small>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" width="100%" height="225" src="https://codescandy.com/geeks-bootstrap-5/assets/images/course/course-angular.jpg
+" alt="Card image cap">
+                <div class="card-body theme-mood">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary theme-mood">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary theme-mood">Edit</button>
+                        </div>
+                        <small class="theme-mood-text-muted">9 mins</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            @* changeTheme(); *@
+            innitTheme();
+
+            $('#darkMood').click(function() {
+                /* $('.theme-mood').addClass('text-white bg-dark');
+                $('.theme-mood-text-muted').addClass('text-white');
+                $('.theme-mood-text-muted').removeClass('text-muted');
+                $('.theme-mood-bg').addClass('bg-secondary');
+                $('#darkMood').hide();
+                $('#lightMood').show(); */
+                localStorage.setItem('theme', 'dark');
+                changeTheme();
+            });
+            $('#lightMood').click(function() {
+                /* $('.theme-mood').removeClass('text-white bg-dark');
+                $('.theme-mood-text-muted').addClass('text-muted');
+                $('.theme-mood-text-muted').removeClass('text-white');
+                $('.theme-mood-bg').removeClass('bg-secondary');
+                $('#darkMood').show();
+                $('#lightMood').hide(); */
+                localStorage.setItem('theme', 'light');
+                changeTheme();
+            });
+        });
+
+        function innitTheme()
+        {
+            // alert('test');
+            var theme = localStorage.getItem('theme');
+            if(theme === '' || theme == null || theme === 'light')
+            {
+                localStorage.setItem('theme', 'light');
+                $('#darkMood').show();
+                $('#lightMood').hide();
+            }
+            else if(theme === 'dark')
+            {
+                $('#darkMood').hide();
+                $('#lightMood').show();
+            }
+            changeTheme();
+        }
+
+        function changeTheme()
+        {
+            var theme = localStorage.getItem('theme');
+            if(theme === 'light')
+            {
+                $('.theme-mood').removeClass('text-white bg-dark');
+                $('.theme-mood-text-muted').addClass('text-muted');
+                $('.theme-mood-text-muted').removeClass('text-white');
+                $('.theme-mood-bg').removeClass('bg-secondary');
+                $('#darkMood').show();
+                $('#lightMood').hide();
+            }
+            else
+            {
+                $('.theme-mood').addClass('text-white bg-dark');
+                $('.theme-mood-text-muted').addClass('text-white');
+                $('.theme-mood-text-muted').removeClass('text-muted');
+                $('.theme-mood-bg').addClass('bg-secondary');
+                $('#darkMood').hide();
+                $('#lightMood').show();
+            }
+        }
+    </script>
+}

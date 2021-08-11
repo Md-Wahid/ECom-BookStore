@@ -6,9 +6,19 @@
     <title>@ViewData["Title"] - WebBack</title>
     <script src="https://kit.fontawesome.com/63438380e0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* /**/ *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    @* /**/ *@
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        #lightMood, #darkMood
+        {
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>
+<body class="theme-mood-bg">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -20,21 +30,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i>&nbsp;Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fas fa-user-secret"></i>&nbsp;Privacy</a>
                         </li>
                         @if(@User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="BookStores" asp-action="Index">Book Stores</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="BookStores" asp-action="Index"><i class="fas fa-store-alt"></i>&nbsp;Book Stores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="width: 20px; height:20px;"><path d="M 4.8125 9 C 4.335938 9.089844 3.992188 9.511719 4 10 C 4 11.65625 2.65625 13 1 13 C 0.449219 13 0 13.449219 0 14 L 0 36 C 0 36.550781 0.449219 37 1 37 C 2.65625 37 4 38.34375 4 40 C 4 40.550781 4.449219 41 5 41 L 45 41 C 45.550781 41 46 40.550781 46 40 C 46 38.34375 47.34375 37 49 37 C 49.550781 37 50 36.550781 50 36 L 50 14 C 50 13.449219 49.550781 13 49 13 C 47.34375 13 46 11.65625 46 10 C 46 9.449219 45.550781 9 45 9 L 5 9 C 4.96875 9 4.9375 9 4.90625 9 C 4.875 9 4.84375 9 4.8125 9 Z M 5.78125 11 L 44.21875 11 C 44.628906 12.917969 46.082031 14.371094 48 14.78125 L 48 35.21875 C 46.082031 35.628906 44.628906 37.082031 44.21875 39 L 5.78125 39 C 5.371094 37.082031 3.917969 35.628906 2 35.21875 L 2 14.78125 C 3.917969 14.371094 5.371094 12.917969 5.78125 11 Z M 10 20 L 10 22 L 40 22 L 40 20 Z M 10 28 L 10 30 L 40 30 L 40 28 Z"></path></svg>&nbsp;Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index"><i class="fas fa-book-open"></i>&nbsp;Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="BookAuthors" asp-action="Index"><img src="https://img.icons8.com/ios/2x/hand-with-pen.png" alt="Hand With Pen icon" loading="lazy" style="height: 25px; width: 25px;">&nbsp;Book Authors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="BookPictures" asp-action="Index"><i class="far fa-images"></i>&nbsp;Image Gallery</a>
                             </li>
                         }
                     </ul>
@@ -43,6 +59,11 @@
             </div>
         </nav>
     </header>
+    @* <select class="selectpicker" multiple data-live-search="true">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select> *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -56,7 +77,32 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    @* /**/ *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    @* /**/ *@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function() {
+            $('#darkMood').hide();
+            $('#lightMood').hide();
+        });
+        $(document).ready(function(){
+            $('.your-class').slick({
+                dots: true,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: true,
+                fade: true,
+                cssEase: 'linear',                
+                prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+                nextArrow: '<button type="button" class="slick-next">Next</button>'
+            }); 
+
+            // $('.single-item').slick();
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,63 @@
+@model WebBack.ViewModels.BookPictureViewModel
+
+@{
+    ViewData["Title"] = "Edit Book Picture";
+}
+<div class="text-center bg-info text-light py-4 mb-5">
+    <h1 class="display-4">Edit</h1>
+    <h1 class="display-6">Edit this book picture</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" method="POST" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" readonly />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Picture" class="control-label"></label>
+                        <input asp-for="Picture" class="form-control" required />
+                        <span asp-validation-for="Picture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BookId" class="control-label"></label>
+                        <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId">
+                            <option value="">--- Select Book ---</option>
+                        </select>
+                        <span asp-validation-for="BookId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="imgPreview">
+                        <img id="blah" src="@(Model.PictureUri+Model.PictureName)" alt="your image" height="280" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <a asp-action="Index" class="btn btn-secondary mb-1"><i class="fas fa-long-arrow-alt-left"></i>&nbsp;Back to List</a>
+                        <button type="submit" class="btn btn-primary mb-1"><i class="far fa-save"></i>&nbsp;Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        Picture.onchange = evt => {
+            const [file] = Picture.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+}

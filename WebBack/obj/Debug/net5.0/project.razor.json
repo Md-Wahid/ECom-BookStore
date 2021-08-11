@@ -15619,6 +15619,21 @@
   "RootNamespace": "WebBack",
   "Documents": [
     {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Categories/Details.cshtml",
+      "TargetPath": "Views\\Categories\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Edit.cshtml",
+      "TargetPath": "Views\\BookStores\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookAuthors/Details.cshtml",
+      "TargetPath": "Views\\BookAuthors\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Shared/_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
@@ -15629,13 +15644,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookPictures/Index.cshtml",
+      "TargetPath": "Views\\BookPictures\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Categories/Create.cshtml",
+      "TargetPath": "Views\\Categories\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores copy/Create.cshtml",
-      "TargetPath": "Views\\BookStores copy\\Create.cshtml",
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookPictures/Edit.cshtml",
+      "TargetPath": "Views\\BookPictures\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookAuthors/Index.cshtml",
+      "TargetPath": "Views\\BookAuthors\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15644,13 +15674,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Index.cshtml",
-      "TargetPath": "Views\\BookStores\\Index.cshtml",
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Books/Details.cshtml",
+      "TargetPath": "Views\\Books\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores copy/Index.cshtml",
-      "TargetPath": "Views\\BookStores copy\\Index.cshtml",
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Books/Edit.cshtml",
+      "TargetPath": "Views\\Books\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Index.cshtml",
+      "TargetPath": "Views\\BookStores\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15661,6 +15696,21 @@
     {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookAuthors/Edit.cshtml",
+      "TargetPath": "Views\\BookAuthors\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookAuthors/Create.cshtml",
+      "TargetPath": "Views\\BookAuthors\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookPictures/Create.cshtml",
+      "TargetPath": "Views\\BookPictures\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15679,8 +15729,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/BookStores/Details.cshtml",
+      "TargetPath": "Views\\BookStores\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Books/Index.cshtml",
+      "TargetPath": "Views\\Books\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Books/Create.cshtml",
+      "TargetPath": "Views\\Books\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Categories/Edit.cshtml",
+      "TargetPath": "Views\\Categories\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/media/md-wahid/Projects And Others/Ubuntu/Home/Public/Projects/C#/ASP.NetCore/demo/ECom-BookStore/WebBack/Views/Categories/Index.cshtml",
+      "TargetPath": "Views\\Categories\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

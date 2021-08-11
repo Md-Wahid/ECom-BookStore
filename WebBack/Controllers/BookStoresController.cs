@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,50 @@ namespace WebBack.Controllers
                 _context.BookStores.Add(bookStores);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            return View(bookStores);
+        }
+
+        [HttpGet("/BookStoresEdit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var category = _context.BookStores.Find(id);
+            if(id<=0) return BadRequest();
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
+        }
+
+        [HttpPost("/BookStoresEdit/{id}")]
+        public IActionResult Edit(int id, BookStore bookStr)
+        {
+            if(ModelState.IsValid)
+            {
+                var bookStore = new BookStore
+                {
+                    Id = bookStr.Id,
+                    Name = bookStr.Name
+                };
+                // _context.Categories.Update(category);
+                _context.Entry(bookStore).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(bookStr);
+        }
+        public ActionResult Details(int id)
+        {
+            // AppInfo();
+            var bookStores = _context.BookStores.FirstOrDefault(z => z.Id == id);
+            if (id<=0 || bookStores==null)
+            {
+                return BadRequest();
+            }
+            else if(!_context.BookStores.Any(x => x.Id == id))
+            {
+                return NotFound();
             }
             return View(bookStores);
         }

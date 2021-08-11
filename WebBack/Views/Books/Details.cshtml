@@ -1,0 +1,112 @@
+@model WebBack.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+    short i = 0;
+}
+
+<div class="text-center py-5 bg-info text-light mb-5">
+    <h1>Book</h1>
+    <h4>Book Details</h4>
+</div>
+<hr />
+
+<dl class="row">
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="Name"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.Name
+    </dd>
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="Description"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.Description
+    </dd>
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="ISBN"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.ISBN
+    </dd>
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="Price"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.Price
+    </dd>
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="BookAuthor"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.BookAuthor.Name
+    </dd>
+    <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+        <label asp-for="BookStore"></label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        @Model.BookStore.Name
+    </dd>
+    @if(Model.BookPictures != null)
+    {
+        <dt class="col-md-3 offset-md-2 list-group-item list-group-item-info">
+            <label asp-for="BookPictures"></label>
+        </dt>
+        <dd class="col-md-5 list-group-item">
+            <div class="row mx-2 my-3">
+                @* <div class="your-class py-5 bg-light text-center text-dark">
+                    <div>
+                        <!-- <button type="button" class="slick-prev btn btn-success">Previous</button>
+                        <button type="button" class="slick-next">Next</button> -->
+                        your content 1
+                    </div>
+                    <div>your content 2</div>
+                    <div>your content 3</div>
+                </div> *@
+                @foreach (var pic in @Model.BookPictures)
+                @* @for (i=0; i<10;) *@
+                {
+                    i++;
+                    <div class="col-3">
+                        @* @Html.DisplayFor(modelItem => pic.PictureUri); *@
+                        @* <img src="@pic.PictureUri" width="50" /> *@
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter-@i">
+                            <img src="@(pic.PictureUri+pic.PictureName)" width="50" height="50" />
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter-@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">@pic.Book.Name (@pic.Title)</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="@(pic.PictureUri+pic.PictureName)" style="width: 100%;" />
+                                    </div>
+                                    @* <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </dd>
+    }
+    <dt class="col-md-3 offset-md-2 list-group-item">
+        <label class="text-info">Actions</label>
+    </dt>
+    <dd class="col-md-5 list-group-item">
+        <a asp-action="Index" class="text-secondary"><i class="fas fa-long-arrow-alt-left"></i>&nbsp;Back to List</a>&nbsp;
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="text-primary"><i class="far fa-edit"></i>&nbsp;Update</a>&nbsp;
+        <a asp-action="DeleteProduct" asp-route-id="@Model.Id" class="text-danger"><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
+    </dd>
+</dl>
